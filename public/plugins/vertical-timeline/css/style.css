@@ -59,27 +59,7 @@ Modules - reusable parts of our design
 Main components 
 
 -------------------------------- */
-header {
-  height: 200px;
-  line-height: 200px;
-  text-align: center;
-  background: #303e49;
-}
-header h1 {
-  color: white;
-  font-size: 18px;
-  font-size: 1.125rem;
-}
-@media only screen and (min-width: 1170px) {
-  header {
-    height: 300px;
-    line-height: 300px;
-  }
-  header h1 {
-    font-size: 24px;
-    font-size: 1.5rem;
-  }
-}
+
 
 #cd-timeline {
   position: relative;
@@ -103,7 +83,7 @@ header h1 {
     margin-bottom: 3em;
   }
   #cd-timeline::before {
-    left: 50%;
+    left: 15%;
     margin-left: -2px;
   }
 }
@@ -139,20 +119,20 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline-img img {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 12px;
+  height: 12px;
   position: relative;
   left: 50%;
   top: 50%;
-  margin-left: -12px;
-  margin-top: -12px;
+  margin-left: -6px;
+  margin-top: -6px;
 }
 .cd-timeline-img.cd-picture {
   background: #75ce66;
@@ -165,10 +145,10 @@ header h1 {
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {
-    width: 60px;
-    height: 60px;
-    left: 50%;
-    margin-left: -30px;
+    width: 20px;
+    height: 20px;
+    left: 15%;
+    margin-left: -10px;
     /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -258,8 +238,8 @@ header h1 {
   color: #303e49;
 }
 .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
+  font-size: 2px;
+  font-size: 0.2125rem;
 }
 .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
   display: inline-block;
@@ -295,23 +275,23 @@ header h1 {
 }
 @media only screen and (min-width: 768px) {
   .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
+    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 12px;
+    font-size: 0.75rem;
   }
   .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
+    font-size: 1.5px;
+    font-size: 0.20625rem;
   }
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {
     margin-left: 0;
     padding: 1.6em;
-    width: 45%;
+    width: 76%;
   }
   .cd-timeline-content::before {
     top: 24px;
@@ -325,27 +305,27 @@ header h1 {
   .cd-timeline-content .cd-date {
     position: absolute;
     width: 100%;
-    left: 122%;
+    left: 2%;
     top: 6px;
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+  .cd-timeline-block .cd-timeline-content {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+  .cd-timeline-block .cd-timeline-content::before {
     top: 24px;
     left: auto;
     right: 100%;
     border-color: transparent;
     border-right-color: white;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+  .cd-timeline-block .cd-timeline-content .cd-read-more {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+  .cd-timeline-block .cd-timeline-content .cd-date {
     left: auto;
-    right: 122%;
+    right: 120%;
     text-align: right;
   }
   .cssanimations .cd-timeline-content.is-hidden {
@@ -361,7 +341,7 @@ header h1 {
 
 @media only screen and (min-width: 1170px) {
   /* inverse bounce effect on even content blocks */
-  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+  .cssanimations .cd-timeline-block .cd-timeline-content.bounce-in {
     -webkit-animation: cd-bounce-2-inverse 0.6s;
     -moz-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s;

@@ -1,11 +1,36 @@
 {{define "blog"}}
-<aside class="blog aside section">
-                    <div class="section-inner">
-                        <h2 class="heading">Latest Blog Posts</h2>
-                        <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
-                        <div id="rss-feeds" class="content">
 
-                        </div><!--//content-->
-                    </div><!--//section-inner-->
-                </aside><!--//section-->
+<aside class="blog aside section">
+	<div class="section-inner">
+    	<h2 class="heading">Latest Blog Posts</h2>
+        <p>my post</p>
+        <section id="cd-timeline" class="cd-container">
+			<div class="cd-timeline-block">
+				<div class="cd-timeline-img cd-picture">
+					<img src="/public/plugins/vertical-timeline/img/cd-icon-picture.svg" alt="Picture">
+				</div>
+				<div class="cd-timeline-content">
+					<h2>Title of section 1</h2>
+					<p>test</p>
+					<a href="#0" class="cd-read-more">Read more</a>
+					<span class="cd-date">Jan 14</span>
+				</div> 
+			</div> 
+
+			<div class="cd-timeline-block">
+				<div class="cd-timeline-img cd-movie">
+					<img src="/public/plugins/vertical-timeline/img/cd-icon-movie.svg" alt="Movie">
+				</div> 
+
+				<div class="cd-timeline-content">
+					<h2>Title of section 2</h2>
+					<p>testtwo</p>
+					<a href="#0" class="cd-read-more">Read more</a>
+					<span class="cd-date">Jan 18</span>
+				</div> 
+			</div> 
+		</section> 
+    </div><!--//section-inner-->
+</aside><!--//section-->
+
 {{end}}
