@@ -1,26 +1,24 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
-	"./middle/logger"
-	"./middle/recovery"
-	"./middle/static"
-	"./router/api"
-
-	"github.com/codegangsta/negroni"
+	"github.com/bitrho/bit/router/bit"
 	"github.com/gorilla/mux"
 )
 
 func main() {
+	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
 	router := mux.NewRouter()
-	router.Handle("/api/{app}/{platform}/{module}/{version}", api.New())
+	router.StrictSlash(true)
+	router.Handle("/", bit.NewIndex())
+	router.Handle("/index/", bit.NewIndex())
 
-	n := negroni.New()
-	n.Use(logger.New())
-	n.Use(recovery.New())
-	n.Use(static.New(http.Dir("public")))
-	n.UseHandler(router)
-	n.Run(":3000")
+	http.Handle("/", router)
+	err := http.ListenAndServe(":3000", nil)
+	if err != nil {
+		log.Fatalf("Listen error: %v", err)
+	}
 }
