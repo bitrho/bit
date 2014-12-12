@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/plugins/back-to-top/css/reset.css"> 
+    <link rel="stylesheet" href="/public/plugins/back-to-top/css/style.css"> 
+    <script src="js/modernizr.js"></script>
+    <title>{{ .title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ .title }}</h1>
+        <p>Scroll down the page</p>
+    </header>
+
+    <main class="cd-container">
+        {{ .content }}
+    </main>
+    <a href="#0" class="cd-top">Top</a>
+<script src="/public/plugins/jquery-2.1.1.js"></script>
+<script src="/public/plugins/back-to-top/js/main.js"></script> 
+</body>
+</html>

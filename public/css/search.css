@@ -1,0 +1,151 @@
+
+    input, textarea {
+        font-family: "Open Sans", helvetica, arial, sans-serif;
+        font-size: 16px;
+        font-size: 1rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        border: none;
+        color: #383838;
+        border-radius: 0;
+    }
+    input:focus, textarea:focus {
+        outline: none;
+    }
+
+    input[type="search"]::-ms-clear {
+        display: none;
+    }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+    .main-navigation {
+        display: block;
+        -webkit-animation: smooth-entry 0.2s;
+        -moz-animation: smooth-entry 0.2s;
+        animation: smooth-entry 0.2s;
+    }
+
+    .main-navigation {
+        position: absolute;
+        z-index: 5;
+        top: 100%;
+        width: 100%;
+        padding: 0 5%;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        display: none;
+    }
+
+    .main-navigation a {
+        display: block;
+        padding: 1em 0;
+        border-bottom: 1px solid #e1e1e1;
+        color: #383838;
+        font-weight: bold;
+        font-size: 16px;
+        font-size: 1rem;
+    }
+
+    .main-navigation input[type=search] {
+        width: 100%;
+        padding: .6em 0;
+        background: transparent;
+    }
+    @media only screen and (min-width: 768px) {
+        .main-navigation {
+            width: auto;
+            right: 0;
+            padding: 0;
+            top: 20px;
+            background: transparent;
+            box-shadow: none;
+            display: inline-block;
+        }
+        .main-navigation li {
+            display: inline-block;
+            margin-left: 1em;
+            vertical-align: middle;
+        }
+        .main-navigation a {
+            display: block;
+            padding: 4px;
+            border-bottom: none;
+            font-size: 15px;
+            font-size: 0.9375rem;
+        }
+        .dark-bg .main-navigation a {
+            color: #fff;
+        }
+        .main-navigation input[type=search], .main-navigation input[type=search]:focus {
+            width: 180px;
+        }
+        .main-navigation input[type=search] {
+            font-size: 15px;
+            font-size: 0.9375rem;
+            border-bottom: 1px solid #e1e1e1;
+            padding: .4em 0;
+            display: block;
+        }
+        .main-navigation input[type=search]:focus {
+            border-bottom-color: #383838;
+        }
+        .light-bg .main-navigation input[type=search], .dark-bg .main-navigation input[type=search] {
+            border-bottom: none;
+            background: #fff;
+            border-radius: 0.25em;
+            padding: .4em .8em;
+        }
+        .light-bg .main-navigation input[type=search]:focus, .dark-bg .main-navigation input[type=search]:focus {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    }
+@media only screen and (min-width: 1024px) {
+  .main-navigation {
+    top: 30px;
+  }
+  .main-navigation li {
+    margin-left: 1.4em;
+  }
+  .main-navigation input[type=search], .main-navigation input[type=search]:focus {
+    width: 220px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .main-navigation li {
+    margin-left: .8em;
+  }
+  .main-navigation a {
+    display: block;
+    overflow: hidden;
+    padding: .6em 1em;
+    border-radius: 0.25em;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  .no-touch .main-navigation a:hover {
+    background: #383838;
+    color: #fff;
+  }
+  .dark-bg .main-navigation a:hover {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  }
+  .main-navigation input[type=search] {
+    width: 180px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  .main-navigation input[type=search]:focus {
+    width: 220px;
+  }
+}

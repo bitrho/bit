@@ -4,42 +4,14 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	//"runtime/debug"
-	//"github.com/bitrho/bit/model/user"
-	//"github.com/gorilla/sessions"
 )
 
 type index struct {
-	Data      map[string]interface{}
-	templates []string
+	Data map[string]interface{}
 }
 
-var TEMPLATE_PREFIX = "template/bit/"
-
 func NewIndex() *index {
-	templates := []string{
-		"index.html",
-		"header.html",
-		"footer.html",
-		"about.html",
-		"blog.html",
-		"conferences.html",
-		"credit.html",
-		"education.html",
-		"experience.html",
-		"github.html",
-		"info.html",
-		"languages.html",
-		"latest.html",
-		"music.html",
-		"page_header.html",
-		"project.html",
-		"skill.html",
-		"testimonials.html",
-	}
-	return &index{
-		templates: templates,
-	}
+	return &index{}
 }
 
 func (i *index) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -56,7 +28,6 @@ func (i *index) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		"template/bit/experience.html",
 		"template/bit/github.html",
 		"template/bit/info.html",
-
 		"template/bit/languages.html",
 		"template/bit/latest.html",
 		"template/bit/music.html",
@@ -68,6 +39,9 @@ func (i *index) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-
+	i.Data = make(map[string]interface{})
+	blog := NewBlog()
+	blog.getLatest()
+	i.Data["blog"] = blog
 	t.Execute(w, i)
 }

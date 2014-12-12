@@ -15,6 +15,8 @@ func main() {
 	router.StrictSlash(true)
 	router.Handle("/", bit.NewIndex())
 	router.Handle("/index/", bit.NewIndex())
+	router.Handle("/blog/{date}/{title}/", bit.NewBlog())
+	router.Handle("/search/", bit.NewSearch())
 
 	http.Handle("/", router)
 	err := http.ListenAndServe(":3000", nil)
