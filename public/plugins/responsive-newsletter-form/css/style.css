@@ -387,3 +387,9 @@ header h1 {
   -moz-transition: opacity 0.3s 0.3s;
   transition: opacity 0.3s 0.3s;
 }
+
+.content {
+  /* 
+  display: none;
+  */
+}

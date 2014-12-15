@@ -24,15 +24,19 @@
     </header>
 
     <main class="cd-container">
+    
       <div class="cd-form-wrapper ">
-        <form class="cd-form">
+        <form class="cd-form" method="post" action="/admin/">
+          <input name="content" class="content" type="hidden"  id="content">
           <input type="text" class="cd-text cd-title"    name="title"     placeholder="title">
+          <!--
           <input type="text" class="cd-text cd-subtitle" name="subtitle"  placeholder="subtitle">
-          <div class="epiceditors" id="example-1"></div>
+          -->
+          <div class="epiceditors" id="epiceditor"></div>
           <input type="submit" class="cd-submit" value="Submit">
           <div class="cd-loading"></div>
         </form>
-        <div data-type="message" class="cd-response cd-response-error">Ops! Error message here</div>
+        <div data-type="message" class="cd-response cd-response-error">Ops! Error occurs</div>
         <div data-type="message" class="cd-response-success"><p>Great! Success message here</p></div>
         <div data-type="message" class="cd-response cd-response-notification">Hey! Notification message here</div>
       </div>

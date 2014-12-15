@@ -34,28 +34,45 @@ jQuery(document).ready(function($){
 
 	//you should replace this part with your ajax function
 	$('.cd-submit').on('click', function(event){
+		var url = $('.cd-form').attr("action"),
+			content = $("input[name='content']").val(),
+			title = $("input[name='title']").val(),
+			// subtitle = $("input[name='subtitle']").val(),
+			data = {
+				content: content,
+				title: title
+				// subtitle: subtitle
+			};
 		if($('.cd-form').hasClass('is-active')) {
 			event.preventDefault();
 			//show the loading bar and the corrisponding message
 			$('.cd-form').addClass('is-submitted').find('.cd-loading').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-				showMessage();
+				$.ajax({
+  					type: "POST",
+  					url: url,
+  					data: data,
+  					success: function (result) {
+  						showMessage(result.status.code, result.status.msg);
+  						//if transitions are not supported - show messages
+						if($('html').hasClass('no-csstransitions')) {
+							showMessage(result.status.code, result.status.msg);
+						}
+  					},
+ 	 				dataType: "json"
+				});
 			});
-
-			//if transitions are not supported - show messages
-			if($('html').hasClass('no-csstransitions')) {
-				showMessage();
-			}
 		}
 	});
 
-	function showMessage() {
-		if( $('#cd-success').is(':checked') ) {
+	function showMessage(code, msg) {
+		if(code == 1001) {
 			$('.cd-response-success').addClass('slide-in');
-		} else if ( $('#cd-error').is(':checked') ) {
-			$('.cd-response-error').addClass('is-visible');
 		} else {
-			$('.cd-response-notification').addClass('is-visible');
-		}
+			if (msg != '') {
+				$('.cd-response-error').html(msg)
+			}
+			$('.cd-response-error').addClass('is-visible');
+		} 
 	}
 
 	//placeholder fallback (i.e. IE9)

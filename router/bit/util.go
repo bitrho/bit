@@ -9,17 +9,25 @@ import (
 	"os"
 )
 
-func ajaxReturn(msg string, redirect string, w http.ResponseWriter) {
-	data := make(map[string]string)
-	if msg != "" {
-		data["msg"] = msg
+func AjaxReturn(code int, result interface{}, w http.ResponseWriter) {
+	data := make(map[string]interface{})
+	msg := SysStatus(code)
+	data["status"] = map[string]interface{}{
+		"code": code,
+		"msg":  msg,
 	}
-	if redirect != "" {
-		data["redirect"] = redirect
-	}
+	data["result"] = result
 	re, _ := json.Marshal(data)
 	fmt.Fprintln(w, string(re))
 	panic(msg)
+}
+
+func SysStatus(code int) (msg string) {
+	msg, ok := Stat[code]
+	if !ok {
+		msg = Stat[4004]
+	}
+	return
 }
 
 func ReadFile(path string) string {
