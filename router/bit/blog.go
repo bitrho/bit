@@ -16,7 +16,7 @@ import (
 )
 
 var (
-	blogPath = os.Getenv("GOPATH") + "/src/github.com/bitrho/bit/blog/"
+	BlogPath = os.Getenv("GOPATH") + "/src/github.com/bitrho/bit/blog/"
 )
 
 type blog struct {
@@ -65,18 +65,18 @@ func MarkdownToHtml(content string) (str string) {
 }
 
 func (b *blog) render(name string) (str template.HTML, err error) {
-	filePath := blogPath + name
-	if !isFile(filePath) {
+	filePath := BlogPath + name
+	if !IsFile(filePath) {
 		err = errors.New("链接出错了")
 		return
 	}
-	content := readFile(filePath)
+	content := ReadFile(filePath)
 	str = template.HTML(MarkdownToHtml(content))
 	return
 }
 
 func (b *blog) getLatest() {
-	names := ScanDir(blogPath)
+	names := ScanDir(BlogPath)
 	var posts []*Post
 	for _, value := range names {
 		valueArr := strings.Split(value, "-")
@@ -105,11 +105,13 @@ func (b *blog) getLatest() {
 }
 
 type Post struct {
-	Title   string
-	Date    string
-	Content template.HTML
-	Path    string
-	Url     string
+	Title    string
+	Date     string
+	Content  template.HTML
+	Path     string
+	Url      string
+	Brief    template.HTML
+	SubTitle string
 }
 
 type By []*Post

@@ -22,7 +22,7 @@ func ajaxReturn(msg string, redirect string, w http.ResponseWriter) {
 	panic(msg)
 }
 
-func readFile(path string) string {
+func ReadFile(path string) string {
 	fi, err := os.Open(path)
 	if err != nil {
 		log.Println(string(err.Error()))
@@ -36,7 +36,7 @@ func readFile(path string) string {
 	return string(fd)
 }
 
-func isDir(fileName string) bool {
+func IsDir(fileName string) bool {
 	fileInfo, err := os.Stat(fileName)
 	if err != nil {
 		return false
@@ -44,7 +44,7 @@ func isDir(fileName string) bool {
 	return fileInfo.IsDir()
 }
 
-func isFile(fileName string) bool {
+func IsFile(fileName string) bool {
 	fileInfo, err := os.Stat(fileName)
 	if err != nil {
 		return false
